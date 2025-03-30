@@ -157,7 +157,12 @@ channels = (
     chatnet = "liberachat";
     autojoin = "yes";
   },
-  { name = "#neovim"; chatnet = "liberachat"; autojoin = "yes"; }
+  { name = "#neovim"; chatnet = "liberachat"; autojoin = "yes"; },
+  { name = "#juniper"; chatnet = "liberachat"; autojoin = "yes"; },
+  { name = "#cisco"; chatnet = "liberachat"; autojoin = "yes"; },
+  { name = "##books"; chatnet = "liberachat"; autojoin = "yes"; },
+  { name = "##electronics"; chatnet = "liberachat"; autojoin = "yes"; },
+  { name = "#networking"; chatnet = "liberachat"; autojoin = "yes"; }
 );
 
 aliases = {
