@@ -1,0 +1,56 @@
+[[ $- != *i* ]] && return
+
+HISTCONTROL="erasedups" # don't put duplicate lines or lines starting with space in the history.
+HISTSIZE="-1"           # unlimited
+HISTFILESIZE="-1"       # do not truncate history file
+
+shopt -so vi            # use a vi-style line editing interface
+shopt -so noclobber     # disallow existing regular files to be overwritten by redirection of output
+shopt -so pipefail      # return any non-zero return code if there was one
+shopt -s checkwinsize   # check the window size after each command and, if necessary, update the values of LINES and COLUMNS.
+shopt -s histappend     # append to the history file, don't overwrite it
+shopt -s autocd         # if command is a dir name - `cd` into it
+shopt -s expand_aliases
+shopt -s cdspell
+shopt -s dirspell
+shopt -s globstar
+
+alias ls='ls --color=auto'
+alias ll='ls -l'
+alias la='ll -a'
+alias grep='grep --color=auto' 
+alias ip='ip -c'
+alias gpcon="sudo openconnect --protocol gp https://95.67.117.84/"
+
+export PATH=$HOME/.local/bin:$PATH
+export EDITOR=/usr/bin/nvim
+export BROWSER=/usr/bin/firefox
+export VISUAL=/usr/bin/nvim
+export FZF_TMUX=1
+export FZF_TMUX_OPTS="-p"
+export FZF_DEFAULT_COMMAND="fd --type f --follow --hidden --color=never"
+export FZF_DEFAULT_OPTS="--layout=reverse --height 40%"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_CTRL_T_OPTS="--preview 'bat --color=always --line-range :50 {}'"
+export FZF_ALT_C_COMMAND="fd --type d . --follow --hidden --color=never"
+export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -50'"
+export ERL_AFLAGS="-kernel shell_history enabled"
+
+GIT_PS1_SHOWDIRTYSTATE="true"
+GIT_PS1_SHOWSTASHSTATE="true"
+GIT_PS1_SHOWUNTRACKEDFILES="true"
+GIT_PS1_SHOWUPSTREAM="auto"
+GIT_PS1_STATESEPARATOR=""
+GIT_PS1_DESCRIBE_STYLE="branch"
+GIT_PS1_SHOWCOLORHINTS="true"
+
+# PROMPT_COMMAND='__git_ps1 "\w " "❯ "'
+# PS1='\w $(__git_ps1 "[%s]")\$ '
+PS1='[\H:\w$(__git_ps1 "|%s")]\$ '
+
+[[ -f "/usr/share/fzf/key-bindings.bash" ]] && source /usr/share/fzf/key-bindings.bash
+[[ -f "/usr/share/fzf/completion.bash" ]] && source /usr/share/fzf/completion.bash
+[[ -f /usr/share/git/completion/git-prompt.sh ]] && source /usr/share/git/completion/git-prompt.sh
+[[ -f /usr/share/git/completion/git-completion.bash ]] && source /usr/share/git/completion/git-completion.bash
+
+[ -f "/home/f1sty/.ghcup/env" ] && . "/home/f1sty/.ghcup/env" # ghcup-env
