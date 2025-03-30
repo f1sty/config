@@ -20,7 +20,7 @@ alias ll='ls -l'
 alias la='ll -a'
 alias grep='grep --color=auto' 
 alias ip='ip -c'
-alias gpcon="sudo openconnect --protocol gp https://95.67.117.84/"
+alias gpcon="sudo openconnect --protocol gp $(pass work/gp-server)"
 alias irssi='irssi --config=~/.config/irssi/config'
 
 export PATH=$HOME/.local/bin:$PATH
