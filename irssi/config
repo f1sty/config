@@ -336,6 +336,7 @@ settings = {
     autolog = "yes";
     autolog_path = "~/.irssi/logs/$tag/$0.log";
   };
+  "perl/core/scripts" = { awl_shared_sbar = "OFF"; };
 };
 ignores = ( { level = "JOINS PARTS QUITS"; } );
 keyboard = ( 
