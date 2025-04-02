@@ -170,7 +170,8 @@ channels = (
   { name = "#c"; chatnet = "liberachat"; },
   { name = "#bash"; chatnet = "liberachat"; },
   { name = "#lobsters"; chatnet = "liberachat"; },
-  { name = "#vim"; chatnet = "liberachat"; }
+  { name = "#vim"; chatnet = "liberachat"; },
+  { name = "#nixos"; chatnet = "liberachat"; autojoin = "yes"; }
 );
 
 aliases = {
