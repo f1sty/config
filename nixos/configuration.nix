@@ -17,6 +17,7 @@
     configurationLimit = 3;
   };
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -103,12 +104,14 @@
   programs.hyprland.enable = true;
   programs.hyprlock.enable = true;
   programs.bash = {
-    blesh.enable = true;
+    # blesh.enable = true;
     shellAliases = {
       irssi = "irssi --config=~/.config/irssi/config";
       ip = "ip -c";
       nxs = "nix search nixpkgs";
-      nxr = "nixos-rebuild switch --use-remote-sudo --upgrade";
+      nxr = "nixos-rebuild switch --use-remote-sudo --upgrade --flake .";
+      nxo = "nix-store --optimise";
+      nxc = "nix-collect-garbage -d";
     };
   };
   programs.fzf = {
@@ -140,12 +143,16 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    anki
+    killall
+    whatsie
     aria2
     libreoffice-fresh
     ipcalc
     net-snmp
     delta
     nnn
+    ciscoPacketTracer8
     brightnessctl
     clang
     curl

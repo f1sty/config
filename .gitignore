@@ -3,3 +3,6 @@ pulse/
 systemd/
 gh/
 libreoffice/
+org.keshavnrj.ubuntu/
+aria2/files
+QtProject.conf
